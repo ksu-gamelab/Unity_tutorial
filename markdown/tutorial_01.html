@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Chapter 0 Unity&#x3092;&#x30a4;&#x30f3;&#x30b9;&#x30c8;&#x30fc;&#x30eb;&#x3057;&#x3088;&#x3046;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension marp-team.marp-vscode */
+#__marp-vscode {
+  all: revert;
+}
+
+/* Override VS Code default CSS rules reverting to initial
+   https://github.com/microsoft/vscode/blob/master/src/vs/workbench/contrib/webview/browser/pre/main.js#L53 */
+html:has(body.marp-vscode) {
+  padding: 0;
+}
+
+body.marp-vscode {
+  padding: 0;
+}
+
+body.marp-vscode img {
+  max-width: unset;
+  max-height: unset;
+}
+
+body.marp-vscode a,
+body.marp-vscode a:hover,
+body.marp-vscode code {
+  color: unset;
+}
+
+body.marp-vscode blockquote {
+  background: unset;
+  border-color: unset;
+}
+
+@media screen {
+  body.marp-vscode {
+    overflow-y: scroll;
+
+    /* stylelint-disable-next-line selector-class-pattern */
+    &.showEditorSelection {
+      --marp-vscode-highlight-color: rgb(255 255 255 / 40%);
+
+      &.vscode-light {
+        --marp-vscode-highlight-color: rgb(0 0 0 / 15%);
+      }
+
+      &.vscode-high-contrast {
+        --marp-vscode-highlight-color: rgb(255 160 0 / 70%);
+      }
+    }
+  }
+
+  #__marp-vscode [data-marp-vscode-slide-wrapper] {
+    margin: 20px;
+    position: relative;
+
+    &.code-active-line,
+    &:has(.code-active-line) {
+      &::before {
+        position: absolute;
+        content: '';
+        inset: -7px;
+        border: 3px solid var(--marp-vscode-highlight-color, transparent);
+        pointer-events: none;
+      }
+    }
+  }
+
+  #__marp-vscode svg[data-marpit-svg] {
+    box-shadow: 0 5px 10px rgb(0 0 0 / 25%);
+    display: block;
+    margin: 0;
+  }
+
+  /* Based on https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+  #code-csp-warning {
+    background-color: #444;
+    box-shadow: 1px 1px 1px rgb(0 0 0 / 25%);
+    color: white;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: 12px;
+    line-height: 22px;
+    margin: 16px;
+    padding: 6px;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+    overflow-wrap: break-word;
+  }
+
+  #code-csp-warning:hover {
+    text-decoration: none;
+    background-color: #007acc;
+    box-shadow: 2px 2px 2px rgb(0 0 0 / 25%);
+  }
+}
+
+@media print {
+  body.marp-vscode #code-csp-warning {
+    display: none;
+  }
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <hr>
+<h2 id="title-unity初心者向けピンボールゲームチュートリアルfree-false">title: &quot;Unity初心者向けピンボールゲームチュートリアル&quot;
+free: false</h2>
+<p>この資料では、Unityを使って2Dピンボールゲームを作りながら、ゲームオブジェクトとコンポーネントの基本を学びます。</p>
+<p>Unityでのゲーム開発で最初に理解したいことは、GameObject（ゲームオブジェクト）とComponent（コンポーネント）の関係です。シーン内にゲームオブジェクトを配置し、そこへコンポーネントをアタッチすることで、表示・物理・音・スクリプトによる振る舞いを追加できます。</p>
+<h1 id="chapter-0-unityをインストールしよう">Chapter 0 Unityをインストールしよう</h1>
+<h2 id="この章のゴール">この章のゴール</h2>
+<ul>
+<li>Unity Hubをインストールする</li>
+<li>Unity EditorのLTS版をインストールする</li>
+<li>Visual StudioのUnity開発環境を準備する</li>
+</ul>
+<h2 id="unityをインストールしようwindowsの場合">Unityをインストールしよう（Windowsの場合）</h2>
+<p>Unityをインストールしましょう。</p>
+<p>Macの場合は下記のサイトなどを参考に。
+@<a href="https://techchance.jp/blog/2023/01/03/how_to_introduce_nity/">card</a>
+こちらは、アカウント作成、ライセンス認証周りも丁寧に解説されています。Windowsの場合も困ったら見てみてください。</p>
+<p>毎回困る予測変換周りの設定方法がまとめられています。
+@<a href="https://zenn.dev/nok_c7/articles/c9b59cf32134f2">card</a></p>
+<h2 id="unityhubをインストール">UnityHubをインストール</h2>
+<h3 id="ダウンロード">ダウンロード</h3>
+<p>下記サイトからUnityHubをダウンロード
+<a href="https://unity.com/ja">https://unity.com/ja</a></p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-1.png" alt="alt text"></p>
+<p>アカウントを作成するか、サインインしましょう。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-2.png" alt="alt text"></p>
+<p>データ活用についての設定については、ONでもOFFでも問題ありません。
+[Continue] で次に進みます。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-3.png" alt="alt text"></p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-4.png" alt="alt text"></p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-5.png" alt="alt text"></p>
+<p>ダウンロードしたファイルを実行して、UnityHubをインストールしてください。</p>
+<p>インストール完了したら、UnityHubを起動します。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-6.png" alt="alt text"></p>
+<h3 id="unityhubを起動アップデート">UnityHubを起動、アップデート</h3>
+<p>先ほどと同じアカウントでサインインしましょう。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-7.png" alt="alt text"></p>
+<p>ログインが進まない場合は、link to login page.　をクリック</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-8.png" alt="alt text"></p>
+<p>ログインすると、Personalライセンスの取得確認がでます。
+[Agree] で承認。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-9.png" alt="alt text"></p>
+<p>このとき、アップデートがあったら、最新版に更新しておきましょう。</p>
+<p>[Settings]ボタンを押して環境設定を開く</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-10.png" alt="alt text"></p>
+<p>言語設定を日本語に変更（してもしなくてもいい）</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-11.png" alt="alt text"></p>
+<p>なお、UnityHubは日本語でも英語でも良いですが、Unity本体については英語メニューで解説します。日本語に変更してはいけない訳ではないですが、Web上の解説の多くが英語メニューになっているため、英語にしておいた方が楽になります。</p>
+<h3 id="unityエディターをインストール">Unityエディターをインストール</h3>
+<p>この資料では、Unity6.3LTSの仕様を前提に解説を進めます。
+セットアップメニューからUnity6.4をインストールした人はそのまま進めてもいいですが、多少の画面レイアウトの差などがあることには注意してください。</p>
+<p>[インストール]をクリック</p>
+<p>Unity6.3LTS(6000.3.xx) を選んで[インストール]</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-12.png" alt="alt text"></p>
+<p>Microsoft Visual Studio Community が無ければチェックを入れる。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-13.png" alt="alt text"></p>
+<p>Web Build Supportにチェックを入れる。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-14.png" alt="alt text"></p>
+<p>モジュールは後からでも追加出来ます。</p>
+<p>[続行する]でインストール開始します。</p>
+<p>インストール終了まで待つ（1時間以上かかることもあります）。
+UnityHubが最新でない場合、インストールに失敗することがあるので、UnityHubは必ずアップデートしてから行ってください。</p>
+<p>インストール最中に、[Visual Studio Installer]が起動するので、[続行]。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-15.png" alt="alt text"></p>
+<p>更新</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-16.png" alt="alt text"></p>
+<p>変更</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-17.png" alt="alt text"></p>
+<p>Unityによるゲーム開発、C++によるゲーム開発にチェックを入れて、[変更]</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-18.png" alt="alt text"></p>
+<p>以上でUnity起動前の設定は完了です。</p>
+<p>.NET SDK バージョンを 9.0.200以上に更新。
+<a href="https://dotnet.microsoft.com/ja-jp/download/dotnet/9.0">https://dotnet.microsoft.com/ja-jp/download/dotnet/9.0</a></p>
+<p>Visual Studio Codeをインストール
+<a href="https://azure.microsoft.com/ja-jp/products/visual-studio-code">https://azure.microsoft.com/ja-jp/products/visual-studio-code</a></p>
+<p>拡張機能、Unityをインストール</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-48.png" alt="alt text"></p>
+<p>PreferencesのExternalToolsで、Visual Studio Codeを選ぶ</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-49.png" alt="alt text"></p>
+<h2 id="ここまでできたらok">ここまでできたらOK</h2>
+<ul>
+<li>Unity Hubにサインインできている</li>
+<li>Unity EditorのLTS版がインストール済みになっている</li>
+<li>Visual Studio InstallerでUnity開発に必要な項目が入っている</li>
+</ul>
+<h1 id="chapter-1-unityプロジェクトを作ろう">Chapter 1 Unityプロジェクトを作ろう</h1>
+<h2 id="この章のゴール-1">この章のゴール</h2>
+<ul>
+<li>2Dプロジェクトを作成する</li>
+<li>テンプレートファイルをインポートする</li>
+<li>GameObjectとComponentの考え方を知る</li>
+</ul>
+<h2 id="このチュートリアルで作成するゲーム">このチュートリアルで作成するゲーム</h2>
+<p>Unityを使用して手軽に楽しめる2Dピンボールゲームを作成する方法を紹介します。
+このチュートリアルでは、基本的なUnityの操作方法を学び、Unityにおけるゲーム開発の基本を身に付けます。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\017_8bdffe557399-20240227.png" alt=""></p>
+<h2 id="このチャプターで行うこと">このチャプターで行うこと</h2>
+<p>このチャプターでは、Unityプロジェクトを作成してテンプレートファイルをインポート、ピンボールゲームを作るための下準備を行います。</p>
+<h2 id="要点">要点</h2>
+<p>Unityでのゲーム開発にあたって、最初に理解するべきことはGameObject(ゲームオブジェクト)とComponent(コンポーネント)の関係性だと思います。このチュートリアルでは、ゲームシーン内にゲームオブジェクトを配置し、ゲームオブジェクトにコンポーネントを付けることで、ゲームオブジェクトが様々な振る舞いを獲得することを学びます。</p>
+<h2 id="プロジェクトを作成する">プロジェクトを作成する</h2>
+<p>Unityで2Dプロジェクトを作成しましょう。以下の手順でプロジェクトを作成してください。</p>
+<ul>
+<li>UnityHubを起動し、[プロジェクト] ボタンから新規プロジェクトを作成</li>
+<li></li>
+</ul>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-20.png" alt="alt text"></p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-21.png" alt="alt text"></p>
+<p>[Universal 2D] を選択（重要！）し、プロジェクト名を付けて、[プロジェクトを作成]</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-22.png" alt="alt text"></p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-23.png" alt="alt text"></p>
+<p>Unityが起動したらプロジェクト作成は完了です。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-24.png" alt="alt text"></p>
+<h2 id="テンプレートファイルをインポート">テンプレートファイルをインポート</h2>
+<p>下記のリンクから、今回のテンプレートファイルをダウンロードしてください。
+<a href="https://github.com/ksu-gamelab/Unity_tutorial/raw/main/UnityTutorial_01.unitypackage">https://github.com/ksu-gamelab/Unity_tutorial/raw/main/UnityTutorial_01.unitypackage</a></p>
+<p>ダウンロードしたファイル（UnityTutorial_01.unitypackage）を、インポートします。</p>
+<ul>
+<li>プロジェクトウィンドウ内の何もない場所を右クリック</li>
+<li></li>
+</ul>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-25.png" alt="alt text"></p>
+<ul>
+<li>Import Package ⇒ Custom Package とクリック</li>
+<li></li>
+</ul>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-26.png" alt="alt text"></p>
+<ul>
+<li>ファイルを選択して開く</li>
+<li></li>
+</ul>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\022_d490b6591cc5-20240227.png" alt=""></p>
+<ul>
+<li>Import Unity Package ウィンドウが開くので、 [Import]ボタンをクリック</li>
+<li></li>
+</ul>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\023_be7026a9846c-20240227.png" alt=""></p>
+<ul>
+<li>警告が出てきたら、 [Reload]</li>
+<li></li>
+</ul>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\024_41a16297bfc4-20240227.png" alt=""></p>
+<ul>
+<li>プロジェクトウィンドウに3つのフォルダが見えたらインポート完了</li>
+<li></li>
+</ul>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\025_8dc47af32d8a-20240227.png" alt=""></p>
+<p>見た目は特に変わりません。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-27.png" alt="alt text"></p>
+<p>ここまで出来たら、次のチャプターに進みましょう。</p>
+<h2 id="ここまでできたらok-1">ここまでできたらOK</h2>
+<ul>
+<li>Projectウィンドウにテンプレートのフォルダが表示されている</li>
+<li>Sceneビューに背景・ボール・四角形が表示されている</li>
+<li>次章で編集するプロジェクトを開いた状態になっている</li>
+</ul>
+<h1 id="chapter-2-ゲームオブジェクトを作成配置しよう">Chapter 2 ゲームオブジェクトを作成・配置しよう</h1>
+<h2 id="この章のゴール-2">この章のゴール</h2>
+<ul>
+<li>Gameビューの画面サイズを設定する</li>
+<li>ゲームオブジェクトの移動・サイズ変更・回転を行う</li>
+<li>Spriteの表示順序と色を変更する</li>
+</ul>
+<h2 id="このチャプターで行うこと-1">このチャプターで行うこと</h2>
+<p>このチャプターでは、ゲームオブジェクトの作成と配置方法を学びます。
+ゲームオブジェクトの作成、位置の変更、サイズの変更、色の変更、画像オブジェクトの表示順序の変更方法を身に付けましょう。</p>
+<h2 id="ゲーム画面のサイズを変更する">ゲーム画面のサイズを変更する</h2>
+<ul>
+<li>シーンビュー/ゲームビューのタブを切り替えて、[Game]ビューを表示
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\019_b20d8d6864dc-20240227.png" alt=""></li>
+</ul>
+<p>下記のようにクリックしていき、ゲーム画面のサイズを指定します。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-28.png" alt="alt text">
+ここでは、横540, 縦960 で設定していますが、好きなサイズにして構いません。
+縦画面、横画面もどちらでも問題ありません。
+（横540, 縦960はUnityRoom <a href="https://unityroom.com/">https://unityroom.com/</a> で公開する際の縦画面の推奨サイズです）</p>
+<p>画面サイズを変更したら[Scene]ビューに戻ります。
+白い四角形の線が見えています。この白い四角形内にあるものがカメラで表示されます。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-29.png" alt="alt text"></p>
+<h2 id="オブジェクトを配置する">オブジェクトを配置する</h2>
+<h3 id="背景画像を配置する">背景画像を配置する</h3>
+<p>まずは、背景になる画像を配置しましょう。</p>
+<p>プロジェクトビューで、[Images]を開いて、
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-30.png" alt="alt text"></p>
+<p>Background　の画像を探します。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-31.png" alt="alt text"></p>
+<p>シーンビュー内にドラッグ＆ドロップで、画像を配置できます。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-32.png" alt="alt text"></p>
+<p>Rect Toolを選択して、
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\030_e17f7e9eeb1e-20240227.png" alt=""></p>
+<p>四隅の青丸をドラッグして背景画像のサイズを変更
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-33.png" alt="alt text"></p>
+<p>背景なので、カメラの範囲（白の枠線内）からはみ出していても問題ありません。</p>
+<h3 id="ゲームオブジェクトを追加する">ゲームオブジェクトを追加する</h3>
+<p>最初から配置されているもの以外にもゲームオブジェクトを追加してみましょう。
+ヒエラルキーの左上の＋ボタンをクリック、2D Object⇒Sprite ⇒ Circle とクリックしてみてください。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-34.png" alt="alt text"></p>
+<p>ヒエラルキーに新たなゲームオブジェクトが追加され、シーン上に丸が一つ出現します。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-35.png" alt="alt text"></p>
+<p>シーンビュー上で表示されないですね？
+（表示されていても、後で消えることがあります）</p>
+<p>これは、背景画像が丸よりも手前に表示されているためです。</p>
+<p>作成したゲームオブジェクトを選択して、画面右側にあるインスペクターウィンドウの設定値を変更しましょう。
+[Additional Settings]内の [Order in Layer]を0から1に変更すると、背景の後ろに隠れることが無くなります。Order in Layerは数値が大きいほど手前に表示されます。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-36.png" alt="alt text"></p>
+<p>上手く使えば、プレイヤーの手前に草などを配置してわざと隠したり、敵が壁に半分隠れる演出などに利用できます。</p>
+<p>無事に丸が表示されたら、ゲームオブジェクトの名前を変更しましょう。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-37.png" alt="alt text"></p>
+<p>ヒエラルキー上の Circle を選択して右クリック、[Rename] をクリック、名前を [MovingBall] に変更しましょう。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-38.png" alt="alt text"></p>
+<p>このMovingBallオブジェクトをピンボールゲームのボールにしていきます。</p>
+<h4 id="床と壁を作成して配置">床と壁を作成して配置</h4>
+<p>オブジェクトを追加していきましょう。</p>
+<p>ヒエラルキーの左上の＋ボタンをクリック、2D Object⇒Sprite ⇒ Square とクリック。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-39.png" alt="alt text"></p>
+<p>先ほどと同じ様にして、[Additional Settings]内の [Order in Layer]を1に変更。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-40.png" alt="alt text"></p>
+<p>オブジェクトの色を変更するときには、[Sprite Renderer]の[Color]を変更します。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\042_32f4bc362518-20240227.png" alt=""></p>
+<p>オブジェクトのサイズを変更して、横に長い床の形にしましょう。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-41.png" alt="alt text"></p>
+<p>オブジェクトを移動させるには、MoveToolが便利です。</p>
+<p>移動してゲーム画面の最下部に床を設置してみてください。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-42.png" alt="alt text"></p>
+<p>ゲームオブジェクトの名前も、分かりやすい名前に変えてあげましょう。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\043_7ba67c844e61-20240227.png" alt=""></p>
+<p>同じようにして、左右に壁も作ってみましょう。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-43.png" alt="alt text"></p>
+<p>これでピンボールゲームの外枠が出来ました。ここまで出来たら次のチャプターに進みましょう。</p>
+<h2 id="ここまでできたらok-2">ここまでできたらOK</h2>
+<ul>
+<li>背景画像がカメラ範囲に合う大きさになっている</li>
+<li>床・左右の壁が配置されている</li>
+<li>追加したSpriteが背景に隠れず表示されている</li>
+</ul>
+<h1 id="chapter-3-コンポーネントをアタッチしよう">Chapter 3 コンポーネントをアタッチしよう</h1>
+<h2 id="この章のゴール-3">この章のゴール</h2>
+<ul>
+<li>Rigidbody2Dでボールを落下させる</li>
+<li>Collider2Dで当たり判定を付ける</li>
+<li>独自Scriptコンポーネントで回転する動きを追加する</li>
+</ul>
+<h2 id="このチャプターで行うこと-2">このチャプターで行うこと</h2>
+<p>このチャプターでは、オブジェクトにコンポーネントをアタッチし、新たな性質を与える方法を学びます。</p>
+<h2 id="ゲームを実行する">ゲームを実行する</h2>
+<p>ここで一度ゲームを実行してみましょう。
+画面上部にある、三角ボタンでゲーム開始、もう一度押せば終了です。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-44.png" alt="alt text"></p>
+<p>・・・何も起こりませんね。</p>
+<p>（Unityでは実行中に行った変更は保存されません。実行したら必ず終了するように気を付けましょう。）</p>
+<h2 id="ゲームオブジェクトにコンポーネントをアタッチ">ゲームオブジェクトにコンポーネントをアタッチ</h2>
+<p>実行しても何も起こらないのは、配置したゲームオブジェクトが「動く」性質を持っていないからです。ゲームオブジェクトに「動き」（振る舞い）を与えるためには、ゲームオブジェクトにコンポーネントをアタッチする必要があります。</p>
+<h3 id="ボールに落下する性質を与えるrigidbody2d">ボールに落下する性質を与える（Rigidbody2D）</h3>
+<p>MovingBallに[Rigidbody2D]というコンポーネントをアタッチしてみましょう。Rigidbody2Dは、2Dオブジェクトに物理演算を適用するコンポーネントです。</p>
+<p>ヒエラルキーでMovingBallを選択し、MovingBallのインスペクターを開きます。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\046_d880e24bd9d3-20240227.png" alt="">
+インスペクターの一番下に、[Add Component]のボタンがあります。クリックして、検索欄に「Rigidbody2D」と入力すると、Rigidbody2Dのコンポーネントが出てきます。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\047_ba837b562ff6-20240227.png" alt=""></p>
+<p>これをクリックすると、MovingBallのインスペクターにRigidbody2Dコンポーネントが追加されます。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\048_44fdcfc86e54-20240227.png" alt=""></p>
+<p>追加出来たらもう一度実行してみてください。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\049_5b76cea374f0-20240227.png" alt="">
+今度はボールが落下しましたね。
+MovingBallのゲームオブジェクトにRigidbody2Dコンポーネントがアタッチされることによって、MovingBallに物理演算を適用する性質が追加されました。これによってボールが自然落下することになった訳です。</p>
+<h3 id="オブジェクトに当たり判定を付ける">オブジェクトに当たり判定を付ける</h3>
+<p>こうなってくると、ボールが床を突き抜けて落ちていくのが気になりますね。
+今、ボールと床はただの画像であって、実際の形を持ったものになっていません。ただ表示されているだけのものになっています。
+床のオブジェクトに物理的な衝突を表現するコンポーネントをアタッチして、ゲームオブジェクトに物理的な形状を与えましょう。ゲームで良く使われる「当たり判定」というやつです。</p>
+<p>先ほどと同じように、MovingBallのインスペクターを開いて、今度はCircle Collider2Dのコンポーネントを追加します。Circle Collider2Dは円形の形の当たり判定です。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\050_ccaeb38afcf9-20240227.png" alt=""></p>
+<p>これだけだと、ボールだけが当たり判定を持っていて床には何もないので、まだ床を突き抜けてしまいます。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\051_9c1d149b82cf-20240227.png" alt=""></p>
+<p>床のゲームオブジェクトにも当たり判定を追加しましょう。Rigidbody2Dは「物理で動く性質」、Collider2Dは「ぶつかる形」を与えるコンポーネントです。ボールと床の両方にCollider2Dがないと、見た目では重なっていても衝突しません。四角形のゲームオブジェクトには、Box Collider2Dがいいでしょう。
+※似た名前のコンポーネントに、Box Colliderがありますが、2Dゲームを作る場合にはCollider<strong>2D</strong>を使います。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\052_ca6a16fbf114-20240227.png" alt=""></p>
+<p>これで実行してみると、ボールが落下して床で止まるようになります。</p>
+<p>他のゲームオブジェクトにもCollider2Dを追加して、当たり判定を付けてみましょう。最初からあるSquareのゲームオブジェクトのように、斜めになっていても当たり判定は正常に機能します。</p>
+<h3 id="オブジェクトを回転させる">オブジェクトを回転させる</h3>
+<p>次はオブジェクトを回転させてみましょう。</p>
+<p>回転させるオブジェクトを追加します。
+Square のオブジェクトを配置して、細長くして、ボールが当たるいい感じの場所に配置しましょう。</p>
+<p>BoxCollider2Dコンポーネントをアタッチして、当たり判定をくっつけます。
+これで、棒にボールが当たるようになりましたね。</p>
+<p>次は、Squareに[RotateScript]コンポーネントをアタッチしてください。Squareが回転するようになります。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-45.png" alt="alt text">
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\054_8147ced9d1e5-20240227.png" alt=""></p>
+<h4 id="コンポーネントの設定値を変える">コンポーネントの設定値を変える</h4>
+<p>RotateScriptコンポーネントのAngle Speedを変更すると、回転する速度が変わります。
+負の値にすると逆に回転します。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\055_86ddeb682150-20240227.png" alt=""></p>
+<h4 id="回転するオブジェクトを追加しよう">回転するオブジェクトを追加しよう</h4>
+<p>新しくゲームオブジェクトを追加して、当たり判定と回転するコンポーネントをアタッチしてみましょう。</p>
+<p>RotateScriptコンポーネントをゲームオブジェクトにアタッチすると、ゲームオブジェクトが回転するようになりました。</p>
+<h4 id="回転するバーをいくつか追加">回転するバーをいくつか追加</h4>
+<p>同じ様にして、回転するバーを追加しましょう。</p>
+<p>ボールを上から落として、複数のバーに当たって落ちていくように配置してみてください。</p>
+<h2 id="ここまでできたらok-3">ここまでできたらOK</h2>
+<ul>
+<li>再生するとボールが落下する</li>
+<li>ボールが床をすり抜けずに止まる</li>
+<li>RotateScriptを付けたオブジェクトが回転する</li>
+<li>複数の回転するオブジェクトを配置する</li>
+</ul>
+<p>このコンポーネントはUnityに最初から組み込まれているコンポーネントではありません。最初にインポートしたテンプレートファイルに含まれているものです。</p>
+<p>コンポーネントを自分で作れるようになったら、Unity初心者卒業です。</p>
+<p>次のチャプターでは、更に別のコンポーネントも使って、ピンボールゲームを作成していきましょう。</p>
+<h1 id="chapter-4-ピンボールゲームを作ろう">Chapter 4 ピンボールゲームを作ろう</h1>
+<h2 id="この章のゴール-4">この章のゴール</h2>
+<ul>
+<li>スペースキーでボールを発射する仕組みを作る</li>
+<li>ゴールや障害物を配置する</li>
+<li>衝突時に効果音を鳴らす</li>
+</ul>
+<h2 id="このチャプターで行うこと-3">このチャプターで行うこと</h2>
+<p>このチャプターでは、新たなゲームオブジェクトを作成し、コンポーネントをアタッチし、ピンボールゲームのステージを作成していきます。</p>
+<h2 id="ボールを上から落としてみる">ボールを上から落としてみる</h2>
+<p>ボールも跳ね返るようになって、少しずつピンボールゲームっぽくなってきました。でも、今のままだとゲーム開始と同時にボールが落ちてしまうので、「回転のタイミングを見てスタート！」　のようなことが出来ないですね。</p>
+<p>自分のタイミングでボールを落とせるようにしていきましょう。</p>
+<h2 id="ボールを発射する">ボールを発射する</h2>
+<p>ピンボールゲームにするために、スペースキーを押すとボールを落とすようにしていきます。
+新しいゲームオブジェクト（2D Object⇒Sprite⇒Square）を作成して、Box Collider2Dコンポーネントをアタッチします。</p>
+<p>こんな感じに、ボールを上の方で閉じ込めてください。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-47.png" alt="alt text"></p>
+<p>つぎに、ボールの下に置いたゲームオブジェクトに[FallBallScript]コンポーネントをアタッチします。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-50.png" alt="alt text"></p>
+<p>このコンポーネントは、スペースキーを押すと左に移動して、一定時間待ってから元の場所に戻る振る舞いをするコンポーネントです。</p>
+<p>moveDistance、moveTime、waitTime、returnTimeの値を変更して、いい感じにボール落下して戻るようにしてみましょう。</p>
+<p>ボールを自分のタイミングで落とせるようになったら、次は下に落ちたボールを元の場所に戻す動作が欲しいですね。</p>
+<h2 id="自作コンポーネントを作る">自作コンポーネントを作る</h2>
+<p>ここまで来ると、なんとなく、ピンボールゲームになりそうになってきましたね。</p>
+<h2 id="ステージを作る">ステージを作る</h2>
+<h3 id="ゴールを作成">ゴールを作成</h3>
+<p>それでは、ピンボールゲームのゴールを作って行きましょう。
+2D Object⇒Sprite ⇒ Square で新しいゲームオブジェクトを作成し、床の上に配置します。</p>
+<p>ここでは３つのゴールを作って、それぞれ色を変えています。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\061_56ee5e2f7a2c-20240228.png" alt=""></p>
+<p>ゴールに入った後で外に飛び出されては困るので、ゴールを壁で囲みます。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\062_07f851c525de-20240228.png" alt=""></p>
+<h3 id="障害物を追加">障害物を追加</h3>
+<p>小さいCircleを追加して、釘のようにしてみました。
+スペースキーを押すタイミングによって入るゴールが変わるように調整してみましょう。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\063_63c63bb8e807-20240228.png" alt=""></p>
+<h2 id="音を鳴らす">音を鳴らす</h2>
+<p>このままだと静かで寂しいですね。ゴールにボールが当たったら音を鳴らすようにしてみましょう。</p>
+<h3 id="何かが当たったら音を鳴らすコンポーネント">何かが当たったら音を鳴らすコンポーネント</h3>
+<p>ゴールのオブジェクトに、[Audio Source]コンポーネントを追加しましょう。AudioSourceは、オブジェクトに音を鳴らさせるコンポーネントです。オブジェクトにCDプレイヤーを持たせるようなイメージです（CDプレイヤーは死語？）。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\064_f4dba2a9bf3f-20240228.png" alt=""></p>
+<p>鳴らしたい音声データを用意してください。Unityで扱える音声データのファイル形式は、mp3, ogg, wav, aiff, mod, it, s3m, xmです（2024/2時点）。</p>
+<p>音声ファイルの用意が出来たら、UnityEditorにファイルをインポートしましょう。</p>
+<ul>
+<li>プロジェクトウィンドウ内の何もない場所を右クリック
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\020_38f47de047be-20240227.png" alt=""></li>
+</ul>
+<p>[Import New Assets]をクリック
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\065_aa9e96fd68cb-20240228.png" alt=""></p>
+<p>音声ファイルを選択
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\066_c30560c14b6c-20240228.png" alt="">
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\067_8ce71b0d5a28-20240228.png" alt=""></p>
+<p>これで音声データを使うことが出来るようになりました。</p>
+<p>先ほど、AudioSourceコンポーネントをアタッチしたゲームオブジェクトのインスペクターを開いて、Audio Clipに鳴らしたい効果音を設定します。これで、CDプレイヤーにCDがセットされた状態になりました。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\068_460fb85912ed-20240228.png" alt="">
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\069_6dfca6da2c96-20240228.png" alt="">
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\070_6ac08789bbf8-20240228.png" alt=""></p>
+<p>Play On Awakeのチェックは外しておきます。このチェックがついていると、ゲーム開始時に音が鳴ってしまうので、今回の目的には合いません。（ゲーム中のBGMを鳴らす場合にはONにしておくことが多い）</p>
+<p>このままでは、音が鳴らないのでCDプレイヤーの再生ボタンを押してあげる必要があります。
+そのためのコンポーネントをアタッチしましょう。</p>
+<p>PlaySoundScriptコンポーネントは、ゲームオブジェクトに何かが当たったらゲームオブジェクトにアタッチされているAudioSourceのAudioClipを一度だけ再生する振る舞いをするコンポーネントです。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\071_ad229e1a1d6d-20240228.png" alt=""></p>
+<p>これで、ゴールにボールが入ったら音を鳴らせるようになりました。
+他のゴールも音を鳴らせるようにしてみましょう。</p>
+<p>もちろん、ゴール以外にもPlaySoundScriptコンポーネントをアタッチすれば音を鳴らせます。
+色んなオブジェクトに音を鳴らす性質を与えてみましょう。</p>
+<p>では、最後のチャプターに進みます。</p>
+<h2 id="ここまでできたらok-4">ここまでできたらOK</h2>
+<ul>
+<li>スペースキーを押すとボールが落下し、発射台で跳ね返る</li>
+<li>複数のゴールや障害物を配置できている</li>
+<li>ゴールにボールが当たったときに効果音が鳴る</li>
+</ul>
+<h1 id="chapter-5-ピンボールゲームを完成させよう">Chapter 5 ピンボールゲームを完成させよう</h1>
+<h2 id="この章のゴール-5">この章のゴール</h2>
+<ul>
+<li>使えるコンポーネントを整理する</li>
+<li>ゲームオブジェクトを複製・階層化して管理する</li>
+<li>画像やBGMを使ってゲームを作り込む</li>
+</ul>
+<h2 id="このチャプターで行うこと-4">このチャプターで行うこと</h2>
+<p>このチャプターでは、ピンボールゲームのステージを完成させます。</p>
+<ul>
+<li>ヒエラルキーでゲームオブジェクトを作成する</li>
+<li>ゲームオブジェクトの移動、サイズ変更、角度変更</li>
+<li>ゲームオブジェクトにコンポーネントをアタッチ
+ここまで学んできたことを思い出して、ゲームオブジェクトを作る、配置する、コンポーネントをアタッチする、一連の流れをストレスなく行えるまで手に覚えこませましょう。</li>
+</ul>
+<h2 id="その他のコンポーネント">その他のコンポーネント</h2>
+<p>ここまで使ってきたコンポーネント、それ以外にテンプレートに入れているコンポーネントを紹介します。ここで文章省略のために、「自身」としているところは、「そのコンポーネントをアタッチしたオブジェクト」と読んでください。</p>
+<ul>
+<li>Rigidbody2D：自身に物理演算を適用する</li>
+<li>CircleCollider2D：自身に円形の衝突判定を適用する</li>
+<li>BoxCollider2D：自身に四角形の衝突判定を適用する</li>
+<li>AudioSource：自身に音を再生する機能を与える</li>
+<li>RotateScript：自身に、自身が回転し続ける振る舞いを与える</li>
+<li>PlaySoundScript：自身に何かが衝突したときに、自身にアタッチされているAudioSourceコンポーネントを再生する</li>
+<li>CatapultScript：自身に衝突したオブジェクトに対して、上方向の力を加える、加える力はオブジェクトのサイズによって変わる</li>
+<li>AddGravityPressSpaceScript：スペースキーを押したときに、自身がRigidbody2Dコンポーネントを持っていたら、そのGravityScaleを1にする（つまり、落下するようになる）</li>
+</ul>
+<p>ここからは未使用のコンポーネント</p>
+<ul>
+<li>AddForceBlockScript：自身に衝突したオブジェクトに対して力を加える。加える力はx, yの2軸で指定可能。</li>
+<li>AddForceBlockToForwardScript：自身に衝突したオブジェクトに対して、自身の右方向の力を加える</li>
+<li>ChangeColorScript：自身に何かが衝突したときに、自身の色を指定された色に変える（自身のSpriteRendererコンポーネントのColorの値を変更する）</li>
+<li>ChangeImageScript：自身に何かが衝突したときに、自身の画像を指定された画像に変更する（自身のSpriteRendererコンポーネントのSpriteを変更する）</li>
+<li>RotateAtOnceScript：自身に何かが衝突したときに、指定された角度だけ回転する。RotateScriptコンポーネントとは違い、衝突した時に一度だけ回転する。</li>
+</ul>
+<p>ここで紹介してきたコンポーネントについて注意があります。
+この中でUnityに標準で組み込まれているコンポーネントは、Rigidbody2D、CircleCollider2D、BoxCollider2Dの3つだけです。他のコンポーネントは最初にインポートしたテンプレートに含まれていたもので、インポートしないと使うことが出来ません。</p>
+<p>区別するために、全てに～～Scriptと付けています。これらは、C#というプログラミング言語で記述されたスクリプトファイルで、自分でカスタムしたコンポーネントを作ることが出来ます。</p>
+<h3 id="スクリプトファイルを見てみよう">スクリプトファイルを見てみよう</h3>
+<p>一つ、スクリプトファイルを開いてみましょう。
+プロジェクトウィンドウで[Assets]⇒[Scripts]⇒[Tutorial01]と開いて、[RotateScript]をダブルクリックしてみてください。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\072_ed947e7fb75f-20240229.png" alt=""></p>
+<p>RotateScriptに記述されている内容を見ることが出来ます。
+※何か書き込んでエラーを出さないように気を付けましょう。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\073_4ff659d9e101-20240229.png" alt=""></p>
+<p>このスクリプトはこのチュートリアル用に用意したもので、作成時に自動で生成されるコードを除けば、書いたコードは10行目と20行目の２行だけです。1行2行程度のプログラムでも、案外色々なことが出来ます。</p>
+<p>最終的に、
+自分のしたいことに合わせて、
+それを実現可能なスクリプトを書いて、カスタムコンポーネントを作り、
+それをゲームオブジェクトにアタッチして様々な振る舞いを実現する。</p>
+<p>今はまだ意味が分からないかも知れませんが、チュートリアルを進めるうちにスクリプトを自分で作って書けるようになっていきます。（自分でカスタムコンポーネントを作れるようになったら初心者卒業です）</p>
+<p>自分でスクリプト（プログラム）を書くことが出来るようになると、Unityで出来ることの幅が大きく広がります。しかし、まずはゲームオブジェクトの振る舞いを決めているのがコンポーネントであり、アタッチするコンポーネントの組み合わせによってゲームオブジェクトが様々な振る舞いを取っていることを理解しましょう。</p>
+<h2 id="ピンボールゲームを完成させよう">ピンボールゲームを完成させよう</h2>
+<p>では、他のコンポーネントも使って、ピンボールゲームを作りこんでいきましょう。
+その前に、作業を楽にするための豆知識をいくつか紹介します。</p>
+<h3 id="ゲームオブジェクトの階層化">ゲームオブジェクトの階層化</h3>
+<p>ゲームオブジェクトが増えてくると、管理が大変になりますね。
+壁やクギなど、同じカテゴリのゲームオブジェクトはまとめて管理することが出来ます。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\074_3d0a621fa03a-20240229.png" alt=""></p>
+<p>ヒエラルキーに空のゲームオブジェクトを一つ追加します。
+＋ボタン⇒Create Empty
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\075_2ee598d53764-20240229.png" alt=""></p>
+<p>出来たゲームオブジェクトの名前を変更して、分かりやすくします。フォルダーを作るイメージです。
+そして、空のゲームオブジェクトに同じカテゴリのゲームオブジェクトをドラッグ＆ドロップします。これでまとめていくとヒエラルキーをすっきりさせることが出来ます。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\076_71478dff75e4-20240229.png" alt=""></p>
+<p>折りたたむとかなり見やすくなりますね。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\077_5a3d19384fff-20240229.png" alt=""></p>
+<h3 id="ゲームオブジェクトの複製">ゲームオブジェクトの複製</h3>
+<p>既にヒエラルキーにあるゲームオブジェクトは、コピーすることが出来ます。
+ゲームオブジェクトをコピーするには、コピー元にしたいゲームオブジェクトを選択してCopyし、ヒエラルキー上の何もない場所を右クリックして、Pasteをクリックします。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\078_cf6274f78e50-20240229.png" alt="">
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\079_d1ee20346f4e-20240229.png" alt=""></p>
+<p>複製を作成する場合には、Duplicateを選べばコピーとペーストが同時に行えます。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\080_6e9d1017762e-20240229.png" alt=""></p>
+<p>複製やコピーしたオブジェクトは、元のオブジェクトに重なっている状態になっているので、位置を動かしてあげましょう。</p>
+<p>コピーしたオブジェクトには、元のオブジェクトと同じコンポーネントがついている状態になります。</p>
+<h3 id="spriteに画像を貼り付ける">Spriteに画像を貼り付ける</h3>
+<p>Spriteコンポーネントを持つオブジェクト（Sprite⇒Circle等で作成したオブジェクト）には、画像を貼り付けることが出来ます。</p>
+<p>インスペクターのSprite RendererのSpriteの場所（下の画像でSquareとなっている場所）に、画像をドラッグ＆ドロップします。
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\081_a273689efc7e-20240229.png" alt=""></p>
+<p>これで画像を表示することが出来ました。
+音声ファイルをインポートしたときと同じようにして、画像ファイルをインポートすれば、自分の好きな画像をゲーム中に登場させることが出来ます。</p>
+<p>ChangeImageScriptコンポーネントを使用する場合には、インスペクターのChangeImageScriptコンポーネントのChangeSpriteにも画像を設定しておく必要があります。
+（何かが衝突したら、設定した画像に切り替わる）
+<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\082_21a139b0db23-20240229.png" alt=""></p>
+<h3 id="背景bgmを流す">背景BGMを流す</h3>
+<p>ゲーム中、好きな音楽を再生したい場合は、適当なゲームオブジェクトにAudioSourceコンポーネントをアタッチして、AudioClipに再生したい音楽を設定します。
+Play On AwakeとLoopのチェックを入れておけば、ゲーム開始時からゲーム終了まで同じ音楽をループ再生することが出来ます。もちろん、BGMとして再生する音声ファイルはある程度長いものを選びましょう。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\083_88a8978e9e85-20240229.png" alt=""></p>
+<h2 id="しっかり完成させよう">しっかり完成させよう</h2>
+<p>出来ることに制限がある状態ですが、今あるコンポーネントを組み合わせるだけでも面白いものに出来るはずです。中途半端で終わらせるのではなく、他の人に遊んでもらえるようにしっかり作りこんでみましょう。</p>
+<h2 id="おわりに">おわりに</h2>
+<p>Unityでの最初のゲーム完成、おめでとうございます。
+出来ることがまだ少なくて、満足のいく出来にはならないかもしれません。
+例えば、得点が入らない、一回弾を発射したら終わってしまう、パドルのように上下に動く動きをさせたい、、、色んな不満が出てくると思います。</p>
+<p>出てきた不満をメモしておいて、後でもう一度このピンボールゲームに戻ってみましょう。スクリプトを書いてカスタムコンポーネントを作る、これが出来るようになってから戻ってくれば、もっといいゲームに出来るはずです。</p>
+<h2 id="ここまでできたらok-5">ここまでできたらOK</h2>
+<ul>
+<li>ヒエラルキー上でオブジェクトを整理できている</li>
+<li>複製したオブジェクトを使ってステージを作り込めている</li>
+<li>他の人が遊べる状態を目指して調整できている</li>
+</ul>
+
+            
+            <script async type="text/javascript">
+/* From extension marp-team.marp-vscode */
+(()=>{var I=Object.defineProperty;var K=(f,u,_)=>u in f?I(f,u,{enumerable:!0,configurable:!0,writable:!0,value:_}):f[u]=_;var r=(f,u)=>I(f,"name",{value:u,configurable:!0});var w=(f,u,_)=>K(f,typeof u!="symbol"?u+"":u,_);(()=>{var f={32(S,E,h){S.exports=h(924)},924(S,E){"use strict";var h;h={value:!0};const b={h1:{proto:r(()=>HTMLHeadingElement,"proto"),attrs:{role:"heading","aria-level":"1"},style:"display: block; font-size: 2em; margin-block-start: 0.67em; margin-block-end: 0.67em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h2:{proto:r(()=>HTMLHeadingElement,"proto"),attrs:{role:"heading","aria-level":"2"},style:"display: block; font-size: 1.5em; margin-block-start: 0.83em; margin-block-end: 0.83em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h3:{proto:r(()=>HTMLHeadingElement,"proto"),attrs:{role:"heading","aria-level":"3"},style:"display: block; font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h4:{proto:r(()=>HTMLHeadingElement,"proto"),attrs:{role:"heading","aria-level":"4"},style:"display: block; margin-block-start: 1.33em; margin-block-end: 1.33em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h5:{proto:r(()=>HTMLHeadingElement,"proto"),attrs:{role:"heading","aria-level":"5"},style:"display: block; font-size: 0.83em; margin-block-start: 1.67em; margin-block-end: 1.67em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h6:{proto:r(()=>HTMLHeadingElement,"proto"),attrs:{role:"heading","aria-level":"6"},style:"display: block; font-size: 0.67em; margin-block-start: 2.33em; margin-block-end: 2.33em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},span:{proto:r(()=>HTMLSpanElement,"proto")},pre:{proto:r(()=>HTMLElement,"proto"),style:"display: block; font-family: monospace; white-space: pre; margin: 1em 0; --marp-auto-scaling-white-space: pre;"}},q="data-marp-auto-scaling-wrapper",C="data-marp-auto-scaling-svg",O="data-marp-auto-scaling-container",j=class j extends HTMLElement{constructor(){super();w(this,"container");w(this,"containerSize");w(this,"containerObserver");w(this,"svg");w(this,"svgComputedStyle");w(this,"svgPreserveAspectRatio","xMinYMid meet");w(this,"wrapper");w(this,"wrapperSize");w(this,"wrapperObserver");const n=r(s=>([t])=>{const{width:i,height:o}=t.contentRect;this[s]={width:i,height:o},this.updateSVGRect()},"e");this.attachShadow({mode:"open"}),this.containerObserver=new ResizeObserver(n("containerSize")),this.wrapperObserver=new ResizeObserver((...s)=>{n("wrapperSize")(...s),this.flushSvgDisplay()})}static get observedAttributes(){return["data-downscale-only"]}connectedCallback(){this.shadowRoot.innerHTML=`
+<style>
+  svg[${C}] { display: block; width: 100%; height: auto; vertical-align: top; }
+  span[${O}] { display: table; white-space: var(--marp-auto-scaling-white-space, nowrap); width: max-content; }
+</style>
+<div ${q}>
+  <svg part="svg" ${C}>
+    <foreignObject><span ${O}><slot></slot></span></foreignObject>
+  </svg>
+</div>
+    `.split(/\n\s*/).join(""),this.wrapper=this.shadowRoot.querySelector(`div[${q}]`)??void 0;const n=this.svg;this.svg=this.wrapper?.querySelector(`svg[${C}]`)??void 0,this.svg!==n&&(this.svgComputedStyle=this.svg?window.getComputedStyle(this.svg):void 0),this.container=this.svg?.querySelector(`span[${O}]`)??void 0,this.observe()}disconnectedCallback(){this.svg=void 0,this.svgComputedStyle=void 0,this.wrapper=void 0,this.container=void 0,this.observe()}attributeChangedCallback(){this.observe()}flushSvgDisplay(){const{svg:n}=this;n&&(n.style.display="inline",requestAnimationFrame(()=>{n.style.display=""}))}observe(){this.containerObserver.disconnect(),this.wrapperObserver.disconnect(),this.wrapper&&this.wrapperObserver.observe(this.wrapper),this.container&&this.containerObserver.observe(this.container),this.svgComputedStyle&&this.observeSVGStyle(this.svgComputedStyle)}observeSVGStyle(n){const s=r(()=>{const t=(()=>{const i=n.getPropertyValue("--preserve-aspect-ratio");return i?i.trim():`x${(({textAlign:o,direction:d})=>{if(o.endsWith("left"))return"Min";if(o.endsWith("right"))return"Max";if(o==="start"||o==="end"){let m=d==="rtl";return o==="end"&&(m=!m),m?"Max":"Min"}return"Mid"})(n)}YMid meet`})();t!==this.svgPreserveAspectRatio&&(this.svgPreserveAspectRatio=t,this.updateSVGRect()),n===this.svgComputedStyle&&requestAnimationFrame(s)},"t");s()}updateSVGRect(){let n=Math.ceil(this.containerSize?.width??0);const s=Math.ceil(this.containerSize?.height??0);this.dataset.downscaleOnly!==void 0&&(n=Math.max(n,this.wrapperSize?.width??0));const t=this.svg?.querySelector(":scope > foreignObject");if(t?.setAttribute("width",`${n}`),t?.setAttribute("height",`${s}`),this.svg&&(this.svg.setAttribute("viewBox",`0 0 ${n} ${s}`),this.svg.setAttribute("preserveAspectRatio",this.svgPreserveAspectRatio),this.svg.style.height=n<=0||s<=0?"0":""),this.container){const i=this.svgPreserveAspectRatio.toLowerCase();this.container.style.marginLeft=i.startsWith("xmid")||i.startsWith("xmax")?"auto":"0",this.container.style.marginRight=i.startsWith("xmi")?"auto":"0"}}};r(j,"s");let k=j;const T=r((c,{attrs:v={},style:n})=>class extends c{constructor(...s){super(...s);for(const[t,i]of Object.entries(v))this.hasAttribute(t)||this.setAttribute(t,i);this._shadow()}static get observedAttributes(){return["data-auto-scaling"]}connectedCallback(){this._update()}attributeChangedCallback(){this._update()}_shadow(){if(!this.shadowRoot)try{this.attachShadow({mode:"open"})}catch(s){if(!(s instanceof Error&&s.name==="NotSupportedError"))throw s}return this.shadowRoot}_update(){const s=this._shadow();if(s){const t=n?`<style>:host { ${n} }</style>`:"";let i="<slot></slot>";const{autoScaling:o}=this.dataset;o!==void 0&&(i=`<marp-auto-scaling exportparts="svg:auto-scaling" ${o==="downscale-only"?"data-downscale-only":""}>${i}</marp-auto-scaling>`),s.innerHTML=t+i}}},"r");let L;const F=Symbol(),z=r(()=>L??(L=!!document.createElement("div",{is:"marp-auto-scaling"}).outerHTML.startsWith("<div is"),L),"l");let A;const a="marpitSVGPolyfill:setZoomFactor,",l=Symbol(),e=Symbol(),p=r(()=>{const c=navigator.vendor==="Apple Computer, Inc.",v=c?[H]:[],n={then:r(s=>(c?(async()=>{if(A===void 0){const t=document.createElement("canvas");t.width=10,t.height=10;const i=t.getContext("2d"),o=new Image(10,10),d=new Promise(m=>{o.addEventListener("load",()=>m())});o.crossOrigin="anonymous",o.src="data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%20viewBox%3D%220%200%201%201%22%3E%3CforeignObject%20width%3D%221%22%20height%3D%221%22%20requiredExtensions%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxhtml%22%3E%3Cdiv%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxhtml%22%20style%3D%22width%3A%201px%3B%20height%3A%201px%3B%20background%3A%20red%3B%20position%3A%20relative%22%3E%3C%2Fdiv%3E%3C%2FforeignObject%3E%3C%2Fsvg%3E",await d,i.drawImage(o,0,0),A=i.getImageData(5,5,1,1).data[3]<128}return A})().then(t=>{s?.(t?[H]:[])}):s?.([]),n),"then")};return Object.assign(v,n)},"p");let y,g;function H(c){const v=typeof c=="object"&&c.target||document,n=typeof c=="object"?c.zoom:c;window[e]||(Object.defineProperty(window,e,{configurable:!0,value:!0}),document.body.style.zoom=1.0001,document.body.offsetHeight,document.body.style.zoom=1,window.addEventListener("message",({data:t,origin:i})=>{if(i===window.origin)try{if(t&&typeof t=="string"&&t.startsWith(a)){const[,o]=t.split(","),d=Number.parseFloat(o);Number.isNaN(d)||(g=d)}}catch(o){console.error(o)}}));let s=!1;Array.from(v.querySelectorAll("svg[data-marpit-svg]"),t=>{var i,o,d,m;t.style.transform||(t.style.transform="translateZ(0)");const x=n||g||t.currentScale||1;y!==x&&(y=x,s=x);const W=t.getBoundingClientRect(),{length:Z}=t.children;for(let N=0;N<Z;N+=1){const $=t.children[N];if($.getScreenCTM){const M=$.getScreenCTM();if(M){const U=(o=(i=$.x)===null||i===void 0?void 0:i.baseVal.value)!==null&&o!==void 0?o:0,X=(m=(d=$.y)===null||d===void 0?void 0:d.baseVal.value)!==null&&m!==void 0?m:0,J=$.children.length;for(let P=0;P<J;P+=1){const G=$.children[P];if(G.tagName==="SECTION"){const{style:D}=G;D.transformOrigin||(D.transformOrigin=`${-U}px ${-X}px`),D.transform=`scale(${x}) matrix(${M.a}, ${M.b}, ${M.c}, ${M.d}, ${M.e-W.left}, ${M.f-W.top}) translateZ(0.0001px)`;break}}}}}}),s!==!1&&Array.from(v.querySelectorAll("iframe"),({contentWindow:t})=>{t?.postMessage(`${a}${s}`,window.origin==="null"?"*":window.origin)})}r(H,"v");function B({once:c=!1,target:v=document}={}){const n=(function(s=document){if(s[l])return s[l];let t=!0;const i=r(()=>{t=!1,delete s[l]},"i");Object.defineProperty(s,l,{configurable:!0,value:i});let o=[],d=!1;(async()=>{try{o=await p()}finally{d=!0}})();const m=r(()=>{for(const x of o)x({target:s});d&&o.length===0||t&&window.requestAnimationFrame(m)},"r");return m(),i})(v);return c?(n(),()=>{}):n}r(B,"w"),y=1,g=void 0;const Y=B,R=Symbol(),V=r((c=document)=>{if(typeof window>"u")throw new Error("Marp Core's browser script is valid only in browser context.");if(((t=document)=>{const i=window[F];i||customElements.define("marp-auto-scaling",k);for(const o of Object.keys(b)){const d=`marp-${o}`,m=b[o].proto();z()&&m!==HTMLElement?i||customElements.define(d,T(m,{style:b[o].style}),{extends:o}):(i||customElements.define(d,T(HTMLElement,b[o])),t.querySelectorAll(`${o}[is="${d}"]`).forEach(x=>{x.outerHTML=x.outerHTML.replace(new RegExp(`^<${o}`,"i"),`<${d}`).replace(new RegExp(`</${o}>$`,"i"),`</${d}>`)}))}window[F]=!0})(c),c[R])return c[R];const v=B({target:c}),n=r(()=>{v(),delete c[R]},"n"),s=Object.assign(n,{cleanup:n,update:r(()=>V(c),"update")});return Object.defineProperty(c,R,{configurable:!0,value:s}),s},"f");E.browser=V,h=V,h=Y}},u={};function _(S){var E=u[S];if(E!==void 0)return E.exports;var h=u[S]={exports:{}};return f[S](h,h.exports,_),h.exports}r(_,"__webpack_require__");var Q={};(()=>{"use strict";var S=_(32);const E="marp_vscode_content_section",h="data-marp-vscode-content-start-line",b="data-marp-vscode-content-end-line";function q(a){a.core.ruler.push(E,l=>{if(l.inlineMode)return;let e=null,p=0,y=0;for(const g of l.tokens)g.map&&(p=g.map[0],y=Math.max(y,...g.map)),g.type==="marpit_slide_open"&&(e&&(e.map&&e.attrSet(h,e.map[0]),e.attrSet(b,p-1)),e=g);e&&(e.map&&e.attrSet(h,e.map[0]),e.attrSet(b,y))})}r(q,"marpVSCodeContentSection");const C="marp-vscode.overflowTracker",O=r(a=>typeof a=="object"&&a!=null&&"type"in a&&a.type===C&&"overflowElements"in a&&Array.isArray(a.overflowElements),"isOverflowTrackerEvent"),A=class A{constructor(l){this.postMessage=l,this.delay=150,this.update()}update(){window.setTimeout(()=>this.detectOverflowElements(),this.delay)}cleanup(){}detectOverflowElements(){const l=[];for(const e of document.querySelectorAll(`section[${h}][${b}]`)){const p=e.scrollWidth-e.clientWidth,y=e.scrollHeight-e.clientHeight;if(p<=0&&y<=0)continue;const g=parseInt(e.getAttribute(h)||"",10),H=parseInt(e.getAttribute(b)||"",10);Number.isNaN(g)||Number.isNaN(H)||l.push({startLine:g,endLine:H})}this.postMessage(C,{overflowElements:l})}};r(A,"OverflowTracker");let k=A;function T(){let a;const l=window.cspAlerter?._messaging?.postMessage||window.styleLoadingMonitor?._poster?.postMessage,e=r(()=>{const p=document.getElementById("__marp-vscode");!!a!=!!p?(document.body.classList.toggle("marp-vscode",!!p),p?a={browser:(0,S.browser)(),overflowTracker:l?new k(l):void 0}:(a?.browser.cleanup(),a?.overflowTracker?.cleanup(),a=void 0)):(a?.browser.update(),a?.overflowTracker?.update()),a?(p&&L(p),F()):z()},"updateCallback");window.addEventListener("load",()=>window.setTimeout(e,100)),window.addEventListener("vscode.markdown.updateContent",e),e()}r(T,"preview");const L=r(a=>{a.querySelectorAll("[is]").forEach(l=>{if(l.nodeName.includes("-")||document.createElement(l.nodeName).constructor!==l.constructor)return;const{outerHTML:p}=l;l.outerHTML=p,console.debug("[marp-vscode] Custom element has been upgraded forcibly:",p.slice(0,p.indexOf(">")+1||void 0))})},"forceUpgradeCustomElements"),F=r(()=>{const a=document.querySelectorAll("style:not(#__marp-vscode-style,#_defaultStyles,[data-marp-vscode-body])"),l=document.querySelectorAll('link[rel="stylesheet"][href]:not([href*="marp-vscode"])');a.forEach(e=>{e.closest("#__marp-vscode")||(e.dataset.marpVscodeBody=e.textContent??"",e.textContent="")}),l.forEach(e=>{if(e.closest("#__marp-vscode"))return;const{href:p}=e;e.dataset.marpVscodeHref=p,e.removeAttribute("href")})},"removeStyles"),z=r(()=>{const a=document.querySelectorAll("style[data-marp-vscode-body]"),l=document.querySelectorAll("link[data-marp-vscode-href]");a.forEach(e=>{e.textContent=e.dataset.marpVscodeBody||"",delete e.dataset.marpVscodeBody}),l.forEach(e=>{e.href=e.dataset.marpVscodeHref||"",delete e.dataset.marpVscodeHref})},"restoreStyles");T()})()})();})();
+
+</script>
+
+        </body>
+        </html>
