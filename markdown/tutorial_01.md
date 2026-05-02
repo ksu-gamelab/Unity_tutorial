@@ -24,116 +24,79 @@ Macの場合は下記のサイトなどを参考に。
 毎回困る予測変換周りの設定方法がまとめられています。
 @[card](https://zenn.dev/nok_c7/articles/c9b59cf32134f2)
 
-
 ## UnityHubをインストール
 ### ダウンロード
 下記サイトからUnityHubをダウンロード
-https://unity.com/ja
+https://unity.com/ja/download
 
-![alt text](images/image-1.png)
-
-アカウントを作成するか、サインインしましょう。
-
-![alt text](images/image-2.png)
-
-データ活用についての設定については、ONでもOFFでも問題ありません。
-[Continue] で次に進みます。
-
-![alt text](images/image-3.png)
-
-![alt text](images/image-4.png)
-
-![alt text](images/image-5.png)
-
-ダウンロードしたファイルを実行して、UnityHubをインストールしてください。
-
-インストール完了したら、UnityHubを起動します。
-
-![alt text](images/image-6.png)
+![](images/tutorial_01/001_dd78f8cb30da-20240425.png)
 
 ### UnityHubを起動、アップデート
-先ほどと同じアカウントでサインインしましょう。
+アップデートがあったら、最新版に更新しておく
 
-![alt text](images/image-7.png)
+![](images/tutorial_01/002_bd257b94c38b-20240425.png)
 
-ログインが進まない場合は、link to login page.　をクリック
+環境設定を開く
 
-![alt text](images/image-8.png)
-
-ログインすると、Personalライセンスの取得確認がでます。
-[Agree] で承認。
-
-![alt text](images/image-9.png)
-
-このとき、アップデートがあったら、最新版に更新しておきましょう。
-
-[Settings]ボタンを押して環境設定を開く
-
-![alt text](images/image-10.png)
+![](images/tutorial_01/003_32097ea63bd4-20240425.png)
 
 言語設定を日本語に変更（してもしなくてもいい）
 
-![alt text](images/image-11.png)
+![](images/tutorial_01/004_e50134f7a82a-20240425.png)
 
-なお、UnityHubは日本語でも英語でも良いですが、Unity本体については英語メニューで解説します。日本語に変更してはいけない訳ではないですが、Web上の解説の多くが英語メニューになっているため、英語にしておいた方が楽になります。
+### Unityアカウントを作成してサインイン
+
+![](images/tutorial_01/005_96d405252b9a-20240425.png)
+
+Google、Facebook、AppleID等でサインインするか、こちらでIDを作成からアカウントを作成してサインインする。
+
+![](images/tutorial_01/006_ad10a46e6073-20240425.png)
+
+![](images/tutorial_01/007_12876328415f-20240425.png)
+
+「Get Unity Personal」が表示されたら「Agree」をクリック
+
+![](images/tutorial_01/008_19d602932dd6-20240425.png)
 
 ### Unityエディターをインストール
-この資料では、Unity6.3LTSの仕様を前提に解説を進めます。
-セットアップメニューからUnity6.4をインストールした人はそのまま進めてもいいですが、多少の画面レイアウトの差などがあることには注意してください。
+[LTS]とついているものを選択。
 
-[インストール]をクリック
+![](images/tutorial_01/009_30ef43aafc9f-20240425.png)
 
-Unity6.3LTS(6000.3.xx) を選んで[インストール]
-
-![alt text](images/image-12.png)
-
+インストールをクリック
 Microsoft Visual Studio Community が無ければチェックを入れる。
+その他は必要に応じて、後で変更可能。Language Packの日本語は入れても入れなくても構わないが、このチュートリアルでは英語版で進める（日本語メニューより英語メニューの解説サイトが多いため）
 
-![alt text](images/image-13.png)
-
-Web Build Supportにチェックを入れる。
-
-![alt text](images/image-14.png)
-
-モジュールは後からでも追加出来ます。
-
-[続行する]でインストール開始します。
+![](images/tutorial_01/010_4a612ca45909-20240425.png)
 
 インストール終了まで待つ（1時間以上かかることもあります）。
 UnityHubが最新でない場合、インストールに失敗することがあるので、UnityHubは必ずアップデートしてから行ってください。
 
-インストール最中に、[Visual Studio Installer]が起動するので、[続行]。
+![](images/tutorial_01/011_03a1d6fb2d5e-20240425.png)
 
-![alt text](images/image-15.png)
+インストール完了後、[Visual Studio Installer]を起動
 
-更新
+![](images/tutorial_01/012_60c840f7d75e-20240425.png)
 
-![alt text](images/image-16.png)
+Visual Studio Community 2022の[変更]
 
-変更
+![](images/tutorial_01/013_d268893868d2-20240425.png)
 
-![alt text](images/image-17.png)
+C++によるデスクトップ開発
 
-Unityによるゲーム開発、C++によるゲーム開発にチェックを入れて、[変更]
+![](images/tutorial_01/014_477ddcf60543-20240425.png)
 
-![alt text](images/image-18.png)
+Unityによるゲーム開発、C++によるゲーム開発　にチェックを入れる
+
+![](images/tutorial_01/015_b77cab2d0591-20240425.png)
+
+右側の、インストールの詳細で、[Windows 11 SDK]のチェックを入れる
+
+![](images/tutorial_01/016_a3a1e66b61e4-20240425.png)
+
+[変更]をクリックして、変更をインストール
 
 以上でUnity起動前の設定は完了です。
-
-
-.NET SDK バージョンを 9.0.200以上に更新。
-https://dotnet.microsoft.com/ja-jp/download/dotnet/9.0
-
-Visual Studio Codeをインストール
-https://azure.microsoft.com/ja-jp/products/visual-studio-code
-
-拡張機能、Unityをインストール
-
-![alt text](images/image-48.png)
-
-PreferencesのExternalToolsで、Visual Studio Codeを選ぶ
-
-![alt text](images/image-49.png)
 
 ## ここまでできたらOK
 - Unity Hubにサインインできている
@@ -161,21 +124,11 @@ Unityでのゲーム開発にあたって、最初に理解するべきことは
 
 ## プロジェクトを作成する
 Unityで2Dプロジェクトを作成しましょう。以下の手順でプロジェクトを作成してください。
-- UnityHubを起動し、[プロジェクト] ボタンから新規プロジェクトを作成
-- 
-![alt text](images/image-20.png)
+- UnityHubを起動し、[New project] ボタンから新規プロジェクトを作成
 
-![alt text](images/image-21.png)
+![](images/tutorial_01/018_b005ef214400-20240227.png)
 
-[Universal 2D] を選択（重要！）し、プロジェクト名を付けて、[プロジェクトを作成]
-
-![alt text](images/image-22.png)
-
-![alt text](images/image-23.png)
-
-Unityが起動したらプロジェクト作成は完了です。
-
-![alt text](images/image-24.png)
+![](images/tutorial_01/019_b20d8d6864dc-20240227.png)
 
 ## テンプレートファイルをインポート
 下記のリンクから、今回のテンプレートファイルをダウンロードしてください。
@@ -183,29 +136,30 @@ https://github.com/ksu-gamelab/Unity_tutorial/raw/main/UnityTutorial_01.unitypac
 
 ダウンロードしたファイル（UnityTutorial_01.unitypackage）を、インポートします。
 - プロジェクトウィンドウ内の何もない場所を右クリック
-- 
-![alt text](images/image-25.png)
+
+![](images/tutorial_01/020_38f47de047be-20240227.png)
 
 - Import Package ⇒ Custom Package とクリック
-- 
-![alt text](images/image-26.png)
+
+![](images/tutorial_01/021_201096aabf94-20240227.png)
 
 - ファイルを選択して開く
-- 
+
 ![](images/tutorial_01/022_d490b6591cc5-20240227.png)
+
 - Import Unity Package ウィンドウが開くので、 [Import]ボタンをクリック
-- 
+
 ![](images/tutorial_01/023_be7026a9846c-20240227.png)
-- 警告が出てきたら、 [Reload]
-- 
+
+- 警告が出てくるので、 [Reload]
+
 ![](images/tutorial_01/024_41a16297bfc4-20240227.png)
+
 - プロジェクトウィンドウに3つのフォルダが見えたらインポート完了
-- 
+
 ![](images/tutorial_01/025_8dc47af32d8a-20240227.png)
 
-見た目は特に変わりません。
-
-![alt text](images/image-27.png)
+![](images/tutorial_01/026_81de09e3c01b-20240227.png)
 
 ここまで出来たら、次のチャプターに進みましょう。
 
@@ -227,95 +181,99 @@ https://github.com/ksu-gamelab/Unity_tutorial/raw/main/UnityTutorial_01.unitypac
 
 ## ゲーム画面のサイズを変更する
 - シーンビュー/ゲームビューのタブを切り替えて、[Game]ビューを表示
+
 ![](images/tutorial_01/019_b20d8d6864dc-20240227.png)
 
 下記のようにクリックしていき、ゲーム画面のサイズを指定します。
-![alt text](images/image-28.png)
+
+![](images/tutorial_01/027_e403036afe18-20240227.png)
+
 ここでは、横540, 縦960 で設定していますが、好きなサイズにして構いません。
 縦画面、横画面もどちらでも問題ありません。
 （横540, 縦960はUnityRoom https://unityroom.com/ で公開する際の縦画面の推奨サイズです）
 
 画面サイズを変更したら[Scene]ビューに戻ります。
-白い四角形の線が見えています。この白い四角形内にあるものがカメラで表示されます。
-![alt text](images/image-29.png)
+薄っすら白い四角形の線が見えています。この白い四角形内にあるものがカメラで表示されます。
 
-## オブジェクトを配置する
-### 背景画像を配置する
-まずは、背景になる画像を配置しましょう。
+![](images/tutorial_01/028_fd331cec99c3-20240227.png)
 
-プロジェクトビューで、[Images]を開いて、
-![alt text](images/image-30.png)
+## オブジェクトの配置を変更する
+### 背景画像のサイズを調整
+ヒエラルキーの中から、BackGroundImgを選択
 
-Background　の画像を探します。
-![alt text](images/image-31.png)
-
-シーンビュー内にドラッグ＆ドロップで、画像を配置できます。
-![alt text](images/image-32.png)
-
+![](images/tutorial_01/029_8765b761294e-20240227.png)
 
 Rect Toolを選択して、
+
 ![](images/tutorial_01/030_e17f7e9eeb1e-20240227.png)
 
 四隅の青丸をドラッグして背景画像のサイズを変更
-![alt text](images/image-33.png)
 
-背景なので、カメラの範囲（白の枠線内）からはみ出していても問題ありません。
+![](images/tutorial_01/031_b1e31f650dfa-20240227.png)
 
-### ゲームオブジェクトを追加する
+### 最初から配置されているオブジェクトを移動
+テンプレートのシーンには、最初から3つのゲームオブジェクトが配置されています。
+- BackGroundImg：背景画像
+- MovingBall：ピンボールの玉
+- Square：配置練習用の四角形
+
+Squareを好きな位置に移動してみましょう。
+Move Toolを選択して、オブジェクトを動かします。
+
+![](images/tutorial_01/032_e987077d4ab4-20240227.png)
+
+これだと画面に対してオブジェクトが大きすぎますね。サイズも調整しましょう。
+オブジェクトのサイズを変更するには、先ほどのRect Toolを使います。
+
+![](images/tutorial_01/033_a9f674898e6f-20240227.png)
+
+丁度いい大きさにできたら、MovingBallの位置とサイズも調整しましょう。
+
+![](images/tutorial_01/034_007866f0349b-20240227.png)
+
+角度を変えるときには、Rotate Toolを使います。
+
+![](images/tutorial_01/035_7756b44cfd4e-20240227.png)
+
+![](images/tutorial_01/036_c83b94e7f275-20240227.png)
+
+### 新しいゲームオブジェクトを追加する
 最初から配置されているもの以外にもゲームオブジェクトを追加してみましょう。
-ヒエラルキーの左上の＋ボタンをクリック、2D Object⇒Sprite ⇒ Circle とクリックしてみてください。
-![alt text](images/image-34.png)
+ヒエラルキーの左上に＋ボタンをクリック、2D Object⇒Sprite ⇒ Square とクリックしてみてください。
 
-ヒエラルキーに新たなゲームオブジェクトが追加され、シーン上に丸が一つ出現します。
-![alt text](images/image-35.png)
+![](images/tutorial_01/037_b9a8f5e48ace-20240227.png)
 
-シーンビュー上で表示されないですね？
-（表示されていても、後で消えることがあります）
+ヒエラルキーに新たなゲームオブジェクトが追加され、シーン上に四角形が一つ出現します。
 
-これは、背景画像が丸よりも手前に表示されているためです。
+![](images/tutorial_01/038_800874848c75-20240227.png)
+
+ここで一つ注意点があります。
+追加したSquareですが、背景の後ろに隠れて見えなくなってしまうことがあります。
+これは、Sprite（画像オブジェクト）の表示順序の問題で隠れているだけで、背景画像よりも手前に表示するように設定すれば表示されるようになります。
+
+![](images/tutorial_01/039_2c790908ead1-20240227.png)
 
 作成したゲームオブジェクトを選択して、画面右側にあるインスペクターウィンドウの設定値を変更しましょう。
-[Additional Settings]内の [Order in Layer]を0から1に変更すると、背景の後ろに隠れることが無くなります。Order in Layerは数値が大きいほど手前に表示されます。
+[Additional Settings]内の [Order in Layer]を0から1に変更すると、背景の後ろに隠れることが無くなります。Order in Layerは数値が大きいほど手前に表示されます。上手く使えば、プレイヤーの手前に草などを配置してわざと隠したり、敵が壁に半分隠れる演出などに利用できます。
 
-![alt text](images/image-36.png)
+![](images/tutorial_01/040_98cc492c95e9-20240227.png)
 
-上手く使えば、プレイヤーの手前に草などを配置してわざと隠したり、敵が壁に半分隠れる演出などに利用できます。
+さて、オブジェクトを移動してゲーム画面の最下部に床を設置してみてください。
 
-無事に丸が表示されたら、ゲームオブジェクトの名前を変更しましょう。
-
-![alt text](images/image-37.png)
-
-ヒエラルキー上の Circle を選択して右クリック、[Rename] をクリック、名前を [MovingBall] に変更しましょう。
-
-![alt text](images/image-38.png)
-
-このMovingBallオブジェクトをピンボールゲームのボールにしていきます。
-
-#### 床と壁を作成して配置
-オブジェクトを追加していきましょう。
-
-ヒエラルキーの左上の＋ボタンをクリック、2D Object⇒Sprite ⇒ Square とクリック。
-![alt text](images/image-39.png)
-
-先ほどと同じ様にして、[Additional Settings]内の [Order in Layer]を1に変更。
-![alt text](images/image-40.png)
+![](images/tutorial_01/041_b07c397ae548-20240227.png)
 
 オブジェクトの色を変更するときには、[Sprite Renderer]の[Color]を変更します。
+
 ![](images/tutorial_01/042_32f4bc362518-20240227.png)
 
-オブジェクトのサイズを変更して、横に長い床の形にしましょう。
-![alt text](images/image-41.png)
+ゲームオブジェクトの名前が分かりにくいですね。
+分かりやすい名前に変えてあげましょう。
 
-オブジェクトを移動させるには、MoveToolが便利です。
-
-移動してゲーム画面の最下部に床を設置してみてください。
-![alt text](images/image-42.png)
-
-ゲームオブジェクトの名前も、分かりやすい名前に変えてあげましょう。
 ![](images/tutorial_01/043_7ba67c844e61-20240227.png)
 
 同じようにして、左右に壁も作ってみましょう。
-![alt text](images/image-43.png)
+
+![](images/tutorial_01/044_30fa484d1380-20240227.png)
 
 これでピンボールゲームの外枠が出来ました。ここまで出来たら次のチャプターに進みましょう。
 
@@ -337,7 +295,8 @@ Rect Toolを選択して、
 ## ゲームを実行する
 ここで一度ゲームを実行してみましょう。
 画面上部にある、三角ボタンでゲーム開始、もう一度押せば終了です。
-![alt text](images/image-44.png)
+
+![](images/tutorial_01/045_67cdef9bfc6c-20240227.png)
 
 ・・・何も起こりませんね。
 
@@ -347,18 +306,23 @@ Rect Toolを選択して、
 実行しても何も起こらないのは、配置したゲームオブジェクトが「動く」性質を持っていないからです。ゲームオブジェクトに「動き」（振る舞い）を与えるためには、ゲームオブジェクトにコンポーネントをアタッチする必要があります。
 
 ### ボールに落下する性質を与える（Rigidbody2D）
-MovingBallに[Rigidbody2D]というコンポーネントをアタッチしてみましょう。Rigidbody2Dは、2Dオブジェクトに物理演算を適用するコンポーネントです。
-
+MovingBallに[Rigidbody2D]というコンポーネントをアタッチしてみましょう。
 ヒエラルキーでMovingBallを選択し、MovingBallのインスペクターを開きます。
+
 ![](images/tutorial_01/046_d880e24bd9d3-20240227.png)
+
 インスペクターの一番下に、[Add Component]のボタンがあります。クリックして、検索欄に「Rigidbody2D」と入力すると、Rigidbody2Dのコンポーネントが出てきます。
+
 ![](images/tutorial_01/047_ba837b562ff6-20240227.png)
 
 これをクリックすると、MovingBallのインスペクターにRigidbody2Dコンポーネントが追加されます。
+
 ![](images/tutorial_01/048_44fdcfc86e54-20240227.png)
 
 追加出来たらもう一度実行してみてください。
+
 ![](images/tutorial_01/049_5b76cea374f0-20240227.png)
+
 今度はボールが落下しましたね。
 MovingBallのゲームオブジェクトにRigidbody2Dコンポーネントがアタッチされることによって、MovingBallに物理演算を適用する性質が追加されました。これによってボールが自然落下することになった訳です。
 
@@ -368,6 +332,7 @@ MovingBallのゲームオブジェクトにRigidbody2Dコンポーネントが�
 床のオブジェクトに物理的な衝突を表現するコンポーネントをアタッチして、ゲームオブジェクトに物理的な形状を与えましょう。ゲームで良く使われる「当たり判定」というやつです。
 
 先ほどと同じように、MovingBallのインスペクターを開いて、今度はCircle Collider2Dのコンポーネントを追加します。Circle Collider2Dは円形の形の当たり判定です。
+
 ![](images/tutorial_01/050_ccaeb38afcf9-20240227.png)
 
 これだけだと、ボールだけが当たり判定を持っていて床には何もないので、まだ床を突き抜けてしまいます。
@@ -383,22 +348,17 @@ MovingBallのゲームオブジェクトにRigidbody2Dコンポーネントが�
 
 他のゲームオブジェクトにもCollider2Dを追加して、当たり判定を付けてみましょう。最初からあるSquareのゲームオブジェクトのように、斜めになっていても当たり判定は正常に機能します。
 
-### オブジェクトを回転させる
-次はオブジェクトを回転させてみましょう。
+### オブジェクトを回転させるコンポーネントをアタッチ
+次はオブジェクトを回転させてみましょう。Squareに[RotateScript]コンポーネントをアタッチしてください。Squareが回転するようになります。
 
-回転させるオブジェクトを追加します。
-Square のオブジェクトを配置して、細長くして、ボールが当たるいい感じの場所に配置しましょう。
+![](images/tutorial_01/053_d73ecda3782c-20240227.png)
 
-BoxCollider2Dコンポーネントをアタッチして、当たり判定をくっつけます。
-これで、棒にボールが当たるようになりましたね。
-
-次は、Squareに[RotateScript]コンポーネントをアタッチしてください。Squareが回転するようになります。
-![alt text](images/image-45.png)
 ![](images/tutorial_01/054_8147ced9d1e5-20240227.png)
 
 #### コンポーネントの設定値を変える
 RotateScriptコンポーネントのAngle Speedを変更すると、回転する速度が変わります。
 負の値にすると逆に回転します。
+
 ![](images/tutorial_01/055_86ddeb682150-20240227.png)
 
 #### 回転するオブジェクトを追加しよう
@@ -406,23 +366,14 @@ RotateScriptコンポーネントのAngle Speedを変更すると、回転する
 
 RotateScriptコンポーネントをゲームオブジェクトにアタッチすると、ゲームオブジェクトが回転するようになりました。
 
-#### 回転するバーをいくつか追加
-同じ様にして、回転するバーを追加しましょう。
+*（このコンポーネントはUnityに最初から組み込まれているコンポーネントではありません。最初にインポートしたテンプレートファイルに含まれていたものです。）*
 
-ボールを上から落として、複数のバーに当たって落ちていくように配置してみてください。
-
+次のチャプターでは、更に別のコンポーネントも使って、ピンボールゲームを作成していきましょう。
 
 ## ここまでできたらOK
 - 再生するとボールが落下する
 - ボールが床をすり抜けずに止まる
 - RotateScriptを付けたオブジェクトが回転する
-- 複数の回転するオブジェクトを配置する
-
-このコンポーネントはUnityに最初から組み込まれているコンポーネントではありません。最初にインポートしたテンプレートファイルに含まれているものです。
-
-コンポーネントを自分で作れるようになったら、Unity初心者卒業です。
-
-次のチャプターでは、更に別のコンポーネントも使って、ピンボールゲームを作成していきましょう。
 
 # Chapter 4 ピンボールゲームを作ろう
 
@@ -434,40 +385,32 @@ RotateScriptコンポーネントをゲームオブジェクトにアタッチ�
 ## このチャプターで行うこと
 このチャプターでは、新たなゲームオブジェクトを作成し、コンポーネントをアタッチし、ピンボールゲームのステージを作成していきます。
 
-## ボールを上から落としてみる
-ボールも跳ね返るようになって、少しずつピンボールゲームっぽくなってきました。でも、今のままだとゲーム開始と同時にボールが落ちてしまうので、「回転のタイミングを見てスタート！」　のようなことが出来ないですね。
-
-自分のタイミングでボールを落とせるようにしていきましょう。
-
-
 ## ボールを発射する
-ピンボールゲームにするために、スペースキーを押すとボールを落とすようにしていきます。
-新しいゲームオブジェクト（2D Object⇒Sprite⇒Square）を作成して、Box Collider2Dコンポーネントをアタッチします。
+ピンボールゲームにするために、スペースキーを押すとボールを発射するようにします。
+新しいゲームオブジェクト（2D Object⇒Sprite⇒Square）を作成して、Box Collider2DコンポーネントとCatapultScriptコンポーネントをアタッチします。CatapultScriptコンポーネントは、発射台やバネのように、衝突したオブジェクトを上方向へ押し出すコンポーネントです。このチュートリアルで用意しているCatapultScriptでは、時間経過で変化するオブジェクトのサイズが大きいほど、強い力で衝突したオブジェクトを上方向に突き上げる振る舞いをします。
 
-こんな感じに、ボールを上の方で閉じ込めてください。
-![alt text](images/image-47.png)
+![](images/tutorial_01/056_e3686cbbaae6-20240227.png)
 
-つぎに、ボールの下に置いたゲームオブジェクトに[FallBallScript]コンポーネントをアタッチします。
+つぎに、MovingBallオブジェクトのRigidbody2DコンポーネントのGravity Scaleの値を0にします。これでMovingBallは自然落下しなくなります。
 
-![alt text](images/image-50.png)
+![](images/tutorial_01/057_b6a1ba9d450b-20240227.png)
 
-このコンポーネントは、スペースキーを押すと左に移動して、一定時間待ってから元の場所に戻る振る舞いをするコンポーネントです。
+そして、MovingBallオブジェクトに、AddGravityPressSpaceScriptコンポーネントをアタッチします。AddGravityPressSpaceScriptコンポーネントは、スペースキーを押すと同じオブジェクトにアタッチされているRigidbody2DコンポーネントのGravity Scaleの値を1に変更するコンポーネントです。このコンポーネントをアタッチすると、MovingBallはスペースキーが押されるまでは空中にとどまり、スペースキーが押されると落下する挙動を取るようになります。
 
-moveDistance、moveTime、waitTime、returnTimeの値を変更して、いい感じにボール落下して戻るようにしてみましょう。
+![](images/tutorial_01/058_1a9b157db710-20240227.png)
 
+CatapultScriptコンポーネントをアタッチしたオブジェクトの上にMovingBallを配置してみましょう。
+スペースキーを押すとMovingBallが落下、跳ね返ったMovingBallが上方のオブジェクトで跳ね返って左側に飛んでいくようになります。
 
-ボールを自分のタイミングで落とせるようになったら、次は下に落ちたボールを元の場所に戻す動作が欲しいですね。
+![](images/tutorial_01/059_5e7b098f8d94-20240228.png)
 
-## 自作コンポーネントを作る
+ボールを跳ね返す力は、CatapultScriptコンポーネントのAdd Force Valueで調整できます。
+丁度いい強さになるように調整してみましょう。
+※実行中に変更した値は、実行終了後に元に戻ってしまいます。気を付けましょう。
 
+![](images/tutorial_01/060_5d9353339504-20240312.png)
 
-
-
-
-ここまで来ると、なんとなく、ピンボールゲームになりそうになってきましたね。
-
-
-
+なんとなく、ピンボールゲームになりそうになってきましたね。
 
 ## ステージを作る
 ### ゴールを作成
@@ -475,14 +418,17 @@ moveDistance、moveTime、waitTime、returnTimeの値を変更して、いい感
 2D Object⇒Sprite ⇒ Square で新しいゲームオブジェクトを作成し、床の上に配置します。
 
 ここでは３つのゴールを作って、それぞれ色を変えています。
+
 ![](images/tutorial_01/061_56ee5e2f7a2c-20240228.png)
 
 ゴールに入った後で外に飛び出されては困るので、ゴールを壁で囲みます。
+
 ![](images/tutorial_01/062_07f851c525de-20240228.png)
 
 ### 障害物を追加
 小さいCircleを追加して、釘のようにしてみました。
 スペースキーを押すタイミングによって入るゴールが変わるように調整してみましょう。
+
 ![](images/tutorial_01/063_63c63bb8e807-20240228.png)
 
 ## 音を鳴らす
@@ -498,13 +444,17 @@ moveDistance、moveTime、waitTime、returnTimeの値を変更して、いい感
 音声ファイルの用意が出来たら、UnityEditorにファイルをインポートしましょう。
 
 - プロジェクトウィンドウ内の何もない場所を右クリック
+
 ![](images/tutorial_01/020_38f47de047be-20240227.png)
 
 [Import New Assets]をクリック
+
 ![](images/tutorial_01/065_aa9e96fd68cb-20240228.png)
 
 音声ファイルを選択
+
 ![](images/tutorial_01/066_c30560c14b6c-20240228.png)
+
 ![](images/tutorial_01/067_8ce71b0d5a28-20240228.png)
 
 これで音声データを使うことが出来るようになりました。
@@ -512,7 +462,9 @@ moveDistance、moveTime、waitTime、returnTimeの値を変更して、いい感
 先ほど、AudioSourceコンポーネントをアタッチしたゲームオブジェクトのインスペクターを開いて、Audio Clipに鳴らしたい効果音を設定します。これで、CDプレイヤーにCDがセットされた状態になりました。
 
 ![](images/tutorial_01/068_460fb85912ed-20240228.png)
+
 ![](images/tutorial_01/069_6dfca6da2c96-20240228.png)
+
 ![](images/tutorial_01/070_6ac08789bbf8-20240228.png)
 
 Play On Awakeのチェックは外しておきます。このチェックがついていると、ゲーム開始時に音が鳴ってしまうので、今回の目的には合いません。（ゲーム中のBGMを鳴らす場合にはONにしておくことが多い）
@@ -529,7 +481,6 @@ PlaySoundScriptコンポーネントは、ゲームオブジェクトに何か�
 
 もちろん、ゴール以外にもPlaySoundScriptコンポーネントをアタッチすれば音を鳴らせます。
 色んなオブジェクトに音を鳴らす性質を与えてみましょう。
-
 
 では、最後のチャプターに進みます。
 
@@ -578,10 +529,12 @@ PlaySoundScriptコンポーネントは、ゲームオブジェクトに何か�
 ### スクリプトファイルを見てみよう
 一つ、スクリプトファイルを開いてみましょう。
 プロジェクトウィンドウで[Assets]⇒[Scripts]⇒[Tutorial01]と開いて、[RotateScript]をダブルクリックしてみてください。
+
 ![](images/tutorial_01/072_ed947e7fb75f-20240229.png)
 
 RotateScriptに記述されている内容を見ることが出来ます。
 ※何か書き込んでエラーを出さないように気を付けましょう。
+
 ![](images/tutorial_01/073_4ff659d9e101-20240229.png)
 
 このスクリプトはこのチュートリアル用に用意したもので、作成時に自動で生成されるコードを除けば、書いたコードは10行目と20行目の２行だけです。1行2行程度のプログラムでも、案外色々なことが出来ます。
@@ -602,17 +555,21 @@ RotateScriptに記述されている内容を見ることが出来ます。
 ### ゲームオブジェクトの階層化
 ゲームオブジェクトが増えてくると、管理が大変になりますね。
 壁やクギなど、同じカテゴリのゲームオブジェクトはまとめて管理することが出来ます。
+
 ![](images/tutorial_01/074_3d0a621fa03a-20240229.png)
 
 ヒエラルキーに空のゲームオブジェクトを一つ追加します。
 ＋ボタン⇒Create Empty
+
 ![](images/tutorial_01/075_2ee598d53764-20240229.png)
 
 出来たゲームオブジェクトの名前を変更して、分かりやすくします。フォルダーを作るイメージです。
 そして、空のゲームオブジェクトに同じカテゴリのゲームオブジェクトをドラッグ＆ドロップします。これでまとめていくとヒエラルキーをすっきりさせることが出来ます。
+
 ![](images/tutorial_01/076_71478dff75e4-20240229.png)
 
 折りたたむとかなり見やすくなりますね。
+
 ![](images/tutorial_01/077_5a3d19384fff-20240229.png)
 
 ### ゲームオブジェクトの複製
@@ -620,9 +577,11 @@ RotateScriptに記述されている内容を見ることが出来ます。
 ゲームオブジェクトをコピーするには、コピー元にしたいゲームオブジェクトを選択してCopyし、ヒエラルキー上の何もない場所を右クリックして、Pasteをクリックします。
 
 ![](images/tutorial_01/078_cf6274f78e50-20240229.png)
+
 ![](images/tutorial_01/079_d1ee20346f4e-20240229.png)
 
 複製を作成する場合には、Duplicateを選べばコピーとペーストが同時に行えます。
+
 ![](images/tutorial_01/080_6e9d1017762e-20240229.png)
 
 複製やコピーしたオブジェクトは、元のオブジェクトに重なっている状態になっているので、位置を動かしてあげましょう。
@@ -633,6 +592,7 @@ RotateScriptに記述されている内容を見ることが出来ます。
 Spriteコンポーネントを持つオブジェクト（Sprite⇒Circle等で作成したオブジェクト）には、画像を貼り付けることが出来ます。
 
 インスペクターのSprite RendererのSpriteの場所（下の画像でSquareとなっている場所）に、画像をドラッグ＆ドロップします。
+
 ![](images/tutorial_01/081_a273689efc7e-20240229.png)
 
 これで画像を表示することが出来ました。
@@ -640,6 +600,7 @@ Spriteコンポーネントを持つオブジェクト（Sprite⇒Circle等で�
 
 ChangeImageScriptコンポーネントを使用する場合には、インスペクターのChangeImageScriptコンポーネントのChangeSpriteにも画像を設定しておく必要があります。
 （何かが衝突したら、設定した画像に切り替わる）
+
 ![](images/tutorial_01/082_21a139b0db23-20240229.png)
 
 ### 背景BGMを流す
@@ -662,4 +623,3 @@ Unityでの最初のゲーム完成、おめでとうございます。
 - ヒエラルキー上でオブジェクトを整理できている
 - 複製したオブジェクトを使ってステージを作り込めている
 - 他の人が遊べる状態を目指して調整できている
-

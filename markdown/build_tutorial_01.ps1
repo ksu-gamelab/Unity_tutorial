@@ -44,6 +44,32 @@ function BulletList($items) {
     return ($items | ForEach-Object { "- $_" }) -join "`n"
 }
 
+function Normalize-ImageBlocks([string]$text) {
+    $text = [regex]::Replace($text, '\s*(!\[[^\]]*\]\([^)]+\))\s*', {
+        param($match)
+        return "`n`n$($match.Groups[1].Value)`n`n"
+    })
+
+    $lines = $text -split "\r?\n"
+    $result = New-Object System.Collections.Generic.List[string]
+
+    foreach ($line in $lines) {
+        $isImageLine = $line.Trim() -match '^!\[.*?\]\(.*?\)$'
+
+        if ($isImageLine -and $result.Count -gt 0 -and $result[$result.Count - 1].Trim().Length -gt 0) {
+            $result.Add("")
+        }
+
+        $result.Add($line)
+
+        if ($isImageLine) {
+            $result.Add("")
+        }
+    }
+
+    return (($result -join "`n") -replace "(\r?\n){3,}", "`n`n").Trim()
+}
+
 $combinedParts = New-Object System.Collections.Generic.List[string]
 
 $frontMatter = @"
@@ -95,6 +121,7 @@ for ($i = 0; $i -lt $files.Count; $i++) {
     }
 
     $body = Raise-Headings $body.Trim()
+    $body = Normalize-ImageBlocks $body
 
     $chapter = @"
 

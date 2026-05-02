@@ -129,6 +129,13 @@ body.marp-vscode blockquote {
                 font-size: 14px;
                 line-height: 1.6;
             }
+
+            img {
+                display: block;
+                max-width: 100%;
+                height: auto;
+                margin: 1em 0;
+            }
         </style>
         <style>
 .task-list-item {
@@ -355,7 +362,7 @@ UnityHubが最新でない場合、インストールに失敗することがあ
 <p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-24.png" alt="alt text"></p>
 <h2 id="テンプレートファイルをインポート">テンプレートファイルをインポート</h2>
 <p>下記のリンクから、今回のテンプレートファイルをダウンロードしてください。
-<a href="https://github.com/ksu-gamelab/Unity_tutorial/raw/main/UnityTutorial_01.unitypackage">https://github.com/ksu-gamelab/Unity_tutorial/raw/main/UnityTutorial_01.unitypackage</a></p>
+<a href="https://github.com/ksu-gamelab/Unity_tutorial/raw/main/unitypackages/UnityTutorial_01.unitypackage">https://github.com/ksu-gamelab/Unity_tutorial/raw/main/unitypackages/UnityTutorial_01.unitypackage</a></p>
 <p>ダウンロードしたファイル（UnityTutorial_01.unitypackage）を、インポートします。</p>
 <ul>
 <li>プロジェクトウィンドウ内の何もない場所を右クリック</li>
@@ -374,17 +381,14 @@ UnityHubが最新でない場合、インストールに失敗することがあ
 <p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\022_d490b6591cc5-20240227.png" alt=""></p>
 <ul>
 <li>Import Unity Package ウィンドウが開くので、 [Import]ボタンをクリック</li>
-<li></li>
 </ul>
 <p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\023_be7026a9846c-20240227.png" alt=""></p>
 <ul>
 <li>警告が出てきたら、 [Reload]</li>
-<li></li>
 </ul>
 <p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\024_41a16297bfc4-20240227.png" alt=""></p>
 <ul>
 <li>プロジェクトウィンドウに3つのフォルダが見えたらインポート完了</li>
-<li></li>
 </ul>
 <p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\025_8dc47af32d8a-20240227.png" alt=""></p>
 <p>見た目は特に変わりません。</p>
@@ -408,30 +412,30 @@ UnityHubが最新でない場合、インストールに失敗することがあ
 ゲームオブジェクトの作成、位置の変更、サイズの変更、色の変更、画像オブジェクトの表示順序の変更方法を身に付けましょう。</p>
 <h2 id="ゲーム画面のサイズを変更する">ゲーム画面のサイズを変更する</h2>
 <ul>
-<li>シーンビュー/ゲームビューのタブを切り替えて、[Game]ビューを表示
-<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\019_b20d8d6864dc-20240227.png" alt=""></li>
+<li>シーンビュー/ゲームビューのタブを切り替えて、[Game]ビューを表示</li>
 </ul>
-<p>下記のようにクリックしていき、ゲーム画面のサイズを指定します。
-<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-28.png" alt="alt text">
-ここでは、横540, 縦960 で設定していますが、好きなサイズにして構いません。
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\019_b20d8d6864dc-20240227.png" alt=""></p>
+<p>下記のようにクリックしていき、ゲーム画面のサイズを指定します。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-28.png" alt="alt text"></p>
+<p>ここでは、横540, 縦960 で設定していますが、好きなサイズにして構いません。
 縦画面、横画面もどちらでも問題ありません。
 （横540, 縦960はUnityRoom <a href="https://unityroom.com/">https://unityroom.com/</a> で公開する際の縦画面の推奨サイズです）</p>
 <p>画面サイズを変更したら[Scene]ビューに戻ります。
-白い四角形の線が見えています。この白い四角形内にあるものがカメラで表示されます。
-<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-29.png" alt="alt text"></p>
+白い四角形の線が見えています。この白い四角形内にあるものがカメラで表示されます。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-29.png" alt="alt text"></p>
 <h2 id="オブジェクトを配置する">オブジェクトを配置する</h2>
 <h3 id="背景画像を配置する">背景画像を配置する</h3>
 <p>まずは、背景になる画像を配置しましょう。</p>
-<p>プロジェクトビューで、[Images]を開いて、
-<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-30.png" alt="alt text"></p>
-<p>Background　の画像を探します。
-<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-31.png" alt="alt text"></p>
-<p>シーンビュー内にドラッグ＆ドロップで、画像を配置できます。
-<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-32.png" alt="alt text"></p>
-<p>Rect Toolを選択して、
-<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\030_e17f7e9eeb1e-20240227.png" alt=""></p>
-<p>四隅の青丸をドラッグして背景画像のサイズを変更
-<img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-33.png" alt="alt text"></p>
+<p>プロジェクトビューで、[Images]を開いて、</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-30.png" alt="alt text"></p>
+<p>Background　の画像を探します。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-31.png" alt="alt text"></p>
+<p>シーンビュー内にドラッグ＆ドロップで、画像を配置できます。</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-32.png" alt="alt text"></p>
+<p>Rect Toolを選択して、</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\tutorial_01\030_e17f7e9eeb1e-20240227.png" alt=""></p>
+<p>四隅の青丸をドラッグして背景画像のサイズを変更</p>
+<p><img src="file:///c:\Users\sumida\Documents\GitHub\Unity_tutorial\markdown\images\image-33.png" alt="alt text"></p>
 <p>背景なので、カメラの範囲（白の枠線内）からはみ出していても問題ありません。</p>
 <h3 id="ゲームオブジェクトを追加する">ゲームオブジェクトを追加する</h3>
 <p>最初から配置されているもの以外にもゲームオブジェクトを追加してみましょう。
