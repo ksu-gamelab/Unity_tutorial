@@ -94,6 +94,9 @@ Unityによるゲーム開発、C++によるゲーム開発　にチェックを
 
 ![](images/tutorial_01/016_a3a1e66b61e4-20240425.png)
 
+.NET 10.0
+https://dotnet.microsoft.com/ja-jp/download
+
 [変更]をクリックして、変更をインストール
 
 以上でUnity起動前の設定は完了です。
